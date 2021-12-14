@@ -1,0 +1,19 @@
+<!--<div>-->
+<!--  <label for="name">Stock name: </label>-->
+<!--  <input id="name" [(ngModel)]="stocks.name" placeholder="name">-->
+<!--</div>-->
+
+<!--<h2>{{ stocks.name | uppercase}} Details </h2>-->
+<!--<div><span>symbol: </span>{{ stocks.symbol}}</div>-->
+<!--<div><span>price: </span>{{ stocks.price | currency: 'USD'}}</div>-->
+
+<h2>My Stocks</h2>
+<ul class="stocks">
+  <li *ngFor="let stock of stocks"
+      [class.selected]="stock === selectedStock"
+      (click)="onSelect(stock)">
+    <span class="badge">{{ stock.symbol}}</span>{{ stock.price | currency: 'USD' }}
+  </li>
+</ul>
+
+<app-stock-details [stock]="selectedStock"></app-stock-details>

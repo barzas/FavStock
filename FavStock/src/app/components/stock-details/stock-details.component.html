@@ -1,0 +1,9 @@
+<div *ngIf="stock">
+  <h2>{{stock.symbol | uppercase}} Details</h2>
+  <div><span>name: </span>{{stock.name}}</div>
+  <div>
+    <div><span>price: </span>{{stock.price | currency: 'USD' }}</div>
+    <label for="stock-name">Stock name: </label>
+    <input id="stock-name" [(ngModel)]="stock.name" placeholder="name">
+  </div>
+</div>
