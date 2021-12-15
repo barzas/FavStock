@@ -5,32 +5,36 @@
   width: 15em;
 }
 .stocks li {
-  cursor: pointer;
   position: relative;
-  left: 0;
+  cursor: pointer;
+}
+
+.stocks li:hover {
+  left: .1em;
+}
+
+.stocks a {
+  color: #333;
+  text-decoration: none;
   background-color: #EEE;
   margin: .5em;
   padding: .3em 0;
   height: 1.6em;
   border-radius: 4px;
+  display: block;
+  width: 100%;
 }
-.stocks li:hover {
+
+.stocks a:hover {
   color: #2c3a41;
   background-color: #e6e6e6;
-  left: .1em;
 }
-.stocks li.selected {
-  background-color: black;
-  color: white;
+
+.stocks a:active {
+  background-color: #525252;
+  color: #fafafa;
 }
-.stocks li.selected:hover {
-  background-color: #505050;
-  color: white;
-}
-.stocks li.selected:active {
-  background-color: black;
-  color: white;
-}
+
 .stocks .badge {
   display: inline-block;
   font-size: small;
@@ -42,10 +46,8 @@
   left: -1px;
   top: -4px;
   height: 1.8em;
+  min-width: 16px;
+  text-align: right;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
-}
-
-input {
-  padding: .5rem;
 }

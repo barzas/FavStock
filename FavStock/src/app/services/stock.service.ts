@@ -22,5 +22,13 @@ export class StockService {
     this.messageService.add('StockService: fetch stocks');
     return stocks;
   }
+
+  getStockBySymbol(currSymbol: String): Observable<Stock> {
+    // For now, assume that a stock with the specified `symbol` always exists.
+    // Error handling will be added in the next step of the tutorial.
+    const currStock = STOCKS.find(s => s.symbol === currSymbol)!;
+    this.messageService.add(`StockService: fetched stock - ${currSymbol}`);
+    return of(currStock);
+  }
 }
 

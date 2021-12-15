@@ -11,7 +11,6 @@ import {MessageService} from "../../services/messages.service";
 export class StocksComponent implements OnInit {
 
   stocks: Stock[] = [];
-  selectedStock?: Stock;
 
   constructor(private stockService : StockService,
               private messageService : MessageService) { }
@@ -22,11 +21,6 @@ export class StocksComponent implements OnInit {
 
   getStocks(): void {
     this.stockService.getStocks().subscribe(stocks => this.stocks = stocks);
-  }
-
-  onSelect(stock : Stock): void {
-    this.selectedStock = stock;
-    this.messageService.add(`StocksComponent: Selected stock symbol=${stock.symbol}`);
   }
 
 }

@@ -9,11 +9,9 @@
 
 <h2>My Stocks</h2>
 <ul class="stocks">
-  <li *ngFor="let stock of stocks"
-      [class.selected]="stock === selectedStock"
-      (click)="onSelect(stock)">
-    <span class="badge">{{ stock.symbol}}</span>{{ stock.price | currency: 'USD' }}
+  <li *ngFor="let stock of stocks">
+    <a routerLink="/detail/{{stock.symbol}}">
+      <span class="badge">{{ stock.symbol}}</span>{{ stock.price | currency: 'USD' }}
+    </a>
   </li>
 </ul>
-
-<app-stock-details [stock]="selectedStock"></app-stock-details>
