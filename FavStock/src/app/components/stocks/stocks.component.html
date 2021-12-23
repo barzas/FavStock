@@ -1,0 +1,30 @@
+<!--<div>-->
+<!--  <label for="name">Stock name: </label>-->
+<!--  <input id="name" [(ngModel)]="stocks.name" placeholder="name">-->
+<!--</div>-->
+
+<!--<h2>{{ stocks.name | uppercase}} Details </h2>-->
+<!--<div><span>symbol: </span>{{ stocks.symbol}}</div>-->
+<!--<div><span>price: </span>{{ stocks.price | currency: 'USD'}}</div>-->
+
+<h2>My Stocks</h2>
+<ul class="stocks">
+  <li *ngFor="let stock of stocks">
+    <a routerLink="/detail/{{stock.symbol}}">
+      <span class="badge">{{ stock.symbol}}</span>{{ stock.price | currency: 'USD' }}
+    </a>
+    <button class="delete" title="delete stock" (click)="delete(stock)">x</button>
+  </li>
+</ul>
+
+<div>
+  <label for="new-stock-name">Stock name: </label>
+  <input id="new-stock-name" #stockName />
+  <label for="new-stock-symbol">Stock symbol: </label>
+  <input id="new-stock-symbol" #stockSymbol />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button class="add-button" (click)="add(stockName.value, stockSymbol.value); stockName.value=''; stockSymbol.value=''">
+    Add stock
+  </button>
+</div>
